@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex-col mt-5">
+            <h1>Register</h1>
+                <form action="/register/user" method="POST">
+                    <div>
+                        {% for message in get_flashed_messages(category_filter=["error_register_first_name"]): %}
+                        {{message}}
+                        {% endfor %}
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name">
+                    </div>
+                    <div>
+                        {% for message in get_flashed_messages(category_filter=["error_register_last_name"]): %}
+                        {{message}}
+                        {% endfor %}
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name">
+                    </div>
+                    <div>
+                        {% for message in get_flashed_messages(category_filter=["error_register_email"]): %}
+                        {{message}}
+                        {% endfor %}
+                        <label for="email">Email:</label>
+                        <input type="text" name="email">
+                    </div>
+                    <div>
+                        {% for message in get_flashed_messages(category_filter=["error_register_password"]): %}
+                        {{message}}
+                        {% endfor %}
+                        <label for="password">Password:</label>
+                        <input type="password" name="password">
+                    </div>
+                    <div>
+                    {% for message in get_flashed_messages(category_filter=["error_register_password_confirmation"]): %}
+                    {{message}}
+                    {% endfor %}
+                    <label for="password_confirmation">Confirm Password:</label>
+                    <input type="password" name="password_confirmation">
+                    <div class="mt-2">
+                    <input class="btn btn-primary" type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>               
+
+        <div class="d-flex-col mt-5">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <div>
+                    {% for message in get_flashed_messages(category_filter=["error_login"]): %}
+                    {{message}}
+                    {% endfor %}
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div>
+                    {% for message in get_flashed_messages(category_filter=["error_login"]): %}
+                    {{message}}
+                    {% endfor %}
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="mt-2">
+                <input class="btn btn-secondary" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
