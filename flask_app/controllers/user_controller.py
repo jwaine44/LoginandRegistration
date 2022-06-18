@@ -8,7 +8,7 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 @app.route('/login')
 def display_login():
-    if User.validate_session == True:
+    if User.validate_session() == True:
         return redirect('/dashboard')
     else:
         return render_template('index.html')
@@ -58,6 +58,9 @@ def register():
 
 @app.route('/dashboard')
 def display_dashboard():
+    if User.validate_session() == False:
+        return redirect('/login')
+    else:
         return render_template('dashboard.html')
 
 @app.route('/logout', methods=['POST'])

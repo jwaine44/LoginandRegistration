@@ -3,4 +3,4 @@ VALUES('George', 'Sand', 'gsand@gmail.com', 'pass123'),
 	('Martha', 'White', 'mw@me.com', 'pass123'),
     ('Ivan', 'Putski', 'iputski@me.com', 'pass123');
     
-SELECT * FROM users;users
+SELECT * FROM users;
