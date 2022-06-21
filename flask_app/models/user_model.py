@@ -79,7 +79,6 @@ class User:
         if "id" in session:
             return True
         else:
-            flash("You must be logged in to see the content of this application.", "error_login")
             return False
     
     @staticmethod
